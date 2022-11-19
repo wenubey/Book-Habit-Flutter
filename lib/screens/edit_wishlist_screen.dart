@@ -1,7 +1,8 @@
 import 'package:book_habits/model/wishlist.dart';
-import 'package:book_habits/screens/add_book_page.dart';
 import 'package:book_habits/utils/constants.dart';
-import 'package:book_habits/widgets/custom_container_widget.dart';
+import 'package:book_habits/widgets/custom_edit_wishlist_row.dart';
+import 'package:book_habits/widgets/custom_input_container.dart';
+import 'package:book_habits/widgets/custom_textfield.dart';
 import 'package:book_habits/widgets/edit_wishlist_fab.dart';
 import 'package:flutter/material.dart';
 import '../repository/wishlist_repository.dart';
@@ -46,8 +47,8 @@ class _EditWishlistScreenState extends State<EditWishlistScreen> {
         title: const Text('Edit Wishlist'),
         backgroundColor: wishlistAppBarColor,
       ),
-      body: CustomContainer(
-        assetUrl: 'images/white_brick.jpg',
+      body: CustomInputContainer(
+        assetUrl: 'assets/images/white_brick.jpg',
         width: width,
         height: height,
         containerSize: 0.30,
@@ -55,53 +56,22 @@ class _EditWishlistScreenState extends State<EditWishlistScreen> {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              TextField(
+              CustomTextField(
                 controller: bookNameController,
-                decoration: const InputDecoration(
-                  hintText: 'Enter a book name',
-                ),
-                style: Theme.of(context).textTheme.bodyText2,
+                hintText: 'Enter a book name',
               ),
-              TextField(
+              CustomTextField(
                 controller: authorNameController,
-                decoration: const InputDecoration(
-                  hintText: 'Enter a author name',
-                ),
-                style: Theme.of(context).textTheme.bodyText2,
+                hintText: 'Enter a author name',
               ),
               const SizedBox(
                 height: 10,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      repository.editItem(
-                        oldWishlist,
-                        bookNameController.text,
-                        authorNameController.text,
-                      );
-                      Navigator.pop(context);
-                    },
-                    child: const Text(
-                      'Edit',
-                      style: textButtonTextStyle,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(
-                        AddBookScreen.id,
-                        arguments: oldWishlist,
-                      );
-                    },
-                    child: const Text(
-                      'Move to book list',
-                      style: textButtonTextStyle,
-                    ),
-                  ),
-                ],
+              CustomEditWishlistRow(
+                repository: repository,
+                oldWishlist: oldWishlist,
+                bookNameController: bookNameController,
+                authorNameController: authorNameController,
               ),
             ],
           ),

@@ -40,14 +40,6 @@ class CustomText extends StatelessWidget {
               'Genre: ${screenArgument.book.genre}',
               style: Theme.of(context).textTheme.bodyText1,
             ),
-            Text(
-              'isFinished: ${screenArgument.book.isFinished.toString()}',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            Text(
-              'isFav: ${screenArgument.book.isFavourite.toString()}',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
           ],
         ),
       ),

@@ -1,17 +1,12 @@
-import 'package:book_habits/repository/book_repository.dart';
 import 'package:flutter/material.dart';
 
 class CustomAlertDialog extends StatelessWidget {
   const CustomAlertDialog({
     Key? key,
-    required this.repository,
-    required this.index,
     required this.onPressed,
     required this.contentText,
   }) : super(key: key);
 
-  final BookRepository repository;
-  final int index;
   final VoidCallback onPressed;
   final String contentText;
   @override

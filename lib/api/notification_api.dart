@@ -19,7 +19,7 @@ class NotificationApi {
   }
 
   static Future init({bool initScheduled = false}) async {
-    const android = AndroidInitializationSettings('@mipmap/ic_launcher');
+    const android = AndroidInitializationSettings('ic_launcher');
     const iOS = IOSInitializationSettings();
     const settings = InitializationSettings(android: android, iOS: iOS);
 
@@ -47,8 +47,6 @@ class NotificationApi {
 
   static Future showScheduledNotification({
     int id = 0,
-    String? title,
-    String? body,
     String? payLoad,
     required int hours,
     required int minutes,
@@ -59,8 +57,8 @@ class NotificationApi {
     final notificationMinute = minutes - currentMinute;
     _notifications.zonedSchedule(
       id,
-      title,
-      body,
+      'Book Habits',
+      "Don't you think it's time to read?",
       tz.TZDateTime.from(DateTime.now(), tz.local).add(Duration(
         hours: notificationHour,
         minutes: notificationMinute,

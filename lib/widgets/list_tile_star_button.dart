@@ -22,7 +22,7 @@ class ListTileStarButton extends StatelessWidget {
       child: Icon(
         isFavourite ? Icons.star : Icons.star_outline,
         size: 25,
-        color: lightOrange,
+        color: beige,
       ),
     );
   }

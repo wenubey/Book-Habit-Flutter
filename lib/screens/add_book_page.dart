@@ -3,9 +3,11 @@ import 'package:book_habits/repository/book_repository.dart';
 import 'package:book_habits/repository/wishlist_repository.dart';
 import 'package:book_habits/screens/home_page.dart';
 import 'package:book_habits/utils/constants.dart';
-import 'package:book_habits/widgets/custom_container_widget.dart';
+import 'package:book_habits/widgets/custom_dropdown_button.dart';
+import 'package:book_habits/widgets/custom_input_container.dart';
 import 'package:book_habits/widgets/custom_divider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../widgets/custom_textfield.dart';
 
@@ -64,7 +66,7 @@ class _AddBookScreenState extends State<AddBookScreen> {
         title: const Text('Add Book'),
       ),
       body: SafeArea(
-        child: CustomContainer(
+        child: CustomInputContainer(
           assetUrl: 'assets/images/bricks.jpg',
           width: width,
           height: height,
@@ -72,10 +74,24 @@ class _AddBookScreenState extends State<AddBookScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomTextFieldList(
-                controller1: titleController,
-                controller2: authorController,
-                controller3: pageCountController,
+              CustomTextField(
+                controller: titleController,
+                hintText: 'Enter your book name',
+              ),
+              CustomTextField(
+                controller: authorController,
+                hintText: 'Enter book\'s author name',
+              ),
+              TextFormField(
+                controller: pageCountController,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  hintText: 'Enter page count',
+                ),
+                style: Theme.of(context).textTheme.bodyText2,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ],
               ),
               const SizedBox(
                 height: 20,
@@ -87,19 +103,10 @@ class _AddBookScreenState extends State<AddBookScreen> {
                 ),
               ),
               const CustomDivider(),
-              DropdownButton(
-                style: const TextStyle(
-                  color: warmBrown,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Merienda',
-                ),
-                elevation: 16,
-                underline: Container(),
-                dropdownColor: paperColor,
-                value: selectedGenre,
-                menuMaxHeight: height * 0.8,
-                borderRadius: const BorderRadius.all(Radius.circular(20)),
-                items: repository.getDropDownMenuItems(),
+              CustomDropdownButtton(
+                selectedGenre: selectedGenre,
+                height: height,
+                repository: repository,
                 onChanged: (value) {
                   setState(() {
                     selectedGenre = value!;

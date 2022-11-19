@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 const String deleteConfirmationText =
     'Are you sure you want to delete this book because you will not be able to undo this action?';
+const String deleteAllConfirmationText =
+    'Are you sure you want to delete these book because you will not be able to undo this action?';
 
 const String isFinishedConfirmationText =
     'Are you sure you finished the book because you will not be able to undo this action?';
@@ -102,6 +104,15 @@ final newThemeData = ThemeData(
     hourMinuteColor: warmBrown,
     backgroundColor: beige,
     dialBackgroundColor: paperColor,
+  ),
+  checkboxTheme:
+      const CheckboxThemeData(fillColor: MaterialStatePropertyAll(beige)),
+  navigationBarTheme: NavigationBarThemeData(
+    indicatorColor: warmBrown,
+    labelTextStyle: MaterialStateProperty.all(
+      listTileTextStyle,
+    ),
+    backgroundColor: brickOrange,
   ),
   hintColor: warmBrown,
   textButtonTheme: TextButtonThemeData(

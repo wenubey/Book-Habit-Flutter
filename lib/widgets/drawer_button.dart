@@ -1,5 +1,5 @@
 import 'package:book_habits/utils/constants.dart';
-import 'package:book_habits/widgets/image_decorations.dart';
+import 'package:book_habits/widgets/custom_container_with_image.dart';
 import 'package:flutter/material.dart';
 
 class DrawerButton extends StatelessWidget {
@@ -15,7 +15,7 @@ class DrawerButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-      child: ImageDecoration(
+      child: CustomContainerWithImage(
         assetUrl: 'assets/images/wood.jpg',
         opacity: 1,
         child: TextButton(

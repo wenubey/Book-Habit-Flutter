@@ -1,7 +1,8 @@
 import 'package:book_habits/repository/wishlist_repository.dart';
 import 'package:book_habits/screens/wishlist_screen.dart';
 import 'package:book_habits/utils/constants.dart';
-import 'package:book_habits/widgets/custom_container_widget.dart';
+import 'package:book_habits/widgets/custom_input_container.dart';
+import 'package:book_habits/widgets/custom_textfield.dart';
 
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,7 @@ class _AddWishlistScreenState extends State<AddWishlistScreen> {
         title: const Text('Add Wishlist'),
         backgroundColor: wishlistAppBarColor,
       ),
-      body: CustomContainer(
+      body: CustomInputContainer(
         assetUrl: 'assets/images/white_brick.jpg',
         width: width,
         height: height,
@@ -50,19 +51,13 @@ class _AddWishlistScreenState extends State<AddWishlistScreen> {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              TextField(
+              CustomTextField(
                 controller: bookNameController,
-                decoration: const InputDecoration(
-                  hintText: 'Enter a book name',
-                ),
-                style: Theme.of(context).textTheme.bodyText2,
+                hintText: 'Enter a book name',
               ),
-              TextField(
+              CustomTextField(
                 controller: authorNameController,
-                decoration: const InputDecoration(
-                  hintText: 'Enter a author name',
-                ),
-                style: Theme.of(context).textTheme.bodyText2,
+                hintText: 'Enter a author name',
               ),
               const SizedBox(
                 height: 10.0,

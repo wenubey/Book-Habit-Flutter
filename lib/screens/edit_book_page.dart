@@ -2,7 +2,8 @@ import 'package:book_habits/utils/book_args.dart';
 import 'package:book_habits/repository/book_repository.dart';
 import 'package:book_habits/utils/constants.dart';
 import 'package:book_habits/widgets/custom_divider.dart';
-import 'package:book_habits/widgets/custom_container_widget.dart';
+import 'package:book_habits/widgets/custom_input_container.dart';
+import 'package:book_habits/widgets/custom_slider.dart';
 import 'package:book_habits/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,7 @@ class _EditBookPageState extends State<EditBookPage> {
   Widget build(BuildContext context) {
     BookArgument screenArgument =
         ModalRoute.of(context)!.settings.arguments as BookArgument;
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -35,11 +37,11 @@ class _EditBookPageState extends State<EditBookPage> {
         title: const Text('Edit Book'),
       ),
       body: SafeArea(
-        child: CustomContainer(
+        child: CustomInputContainer(
           assetUrl: 'assets/images/bricks.jpg',
           height: height,
           width: width,
-          containerSize: 0.65,
+          containerSize: 0.60,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -77,17 +79,12 @@ class _EditBookPageState extends State<EditBookPage> {
                       padding: EdgeInsets.only(left: 10.0, right: 10.0),
                       child: CustomDivider(),
                     ),
-                    Slider(
-                      thumbColor: brickOrange,
-                      activeColor: whiteGrey,
-                      inactiveColor: warmBrown,
-                      value: currentSliderValue,
-                      max: screenArgument.book.pageCount.toDouble(),
-                      divisions: screenArgument.book.pageCount,
-                      label: currentSliderValue.round().toString(),
-                      onChanged: (double value) {
+                    CustomSlider(
+                      currentSliderValue: currentSliderValue,
+                      screenArgument: screenArgument,
+                      onChanged: (value) {
                         setState(() {
-                          currentSliderValue = value;
+                          currentSliderValue = value!;
                         });
                       },
                     ),
@@ -96,7 +93,7 @@ class _EditBookPageState extends State<EditBookPage> {
                         onPressed: () {
                           repository.editCurrentPage(
                             screenArgument.book,
-                            currentSliderValue.toInt(),
+                            currentSliderValue.round().toInt(),
                           );
                           Navigator.pop(context);
                         },

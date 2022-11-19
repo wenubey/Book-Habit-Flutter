@@ -91,9 +91,15 @@ class BookRepository extends ChangeNotifier {
   }
 
   String getFirstCreationDate() {
+    String returnedString = '';
     list = booksBox.values.toList();
-    list.sort((a, b) => a.createdAt.compareTo(b.createdAt));
-    return list.first.createdAt;
+    if (list.isEmpty) {
+      returnedString = '00/00/0000';
+    } else {
+      list.sort((a, b) => a.createdAt.compareTo(b.createdAt));
+      returnedString = list.first.createdAt;
+    }
+    return returnedString;
   }
 
   List<Book> sortAndFilter(

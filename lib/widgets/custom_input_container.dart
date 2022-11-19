@@ -1,14 +1,14 @@
 import 'package:book_habits/utils/constants.dart';
-import 'package:book_habits/widgets/image_decorations.dart';
+import 'package:book_habits/widgets/custom_container_with_image.dart';
 import 'package:flutter/material.dart';
 
-class CustomContainer extends StatelessWidget {
+class CustomInputContainer extends StatelessWidget {
   final double width;
   final double height;
   final Widget child;
   final double containerSize;
   final String assetUrl;
-  const CustomContainer({
+  const CustomInputContainer({
     Key? key,
     required this.width,
     required this.height,
@@ -19,7 +19,7 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ImageDecoration(
+    return CustomContainerWithImage(
       assetUrl: assetUrl,
       opacity: 1,
       child: Center(

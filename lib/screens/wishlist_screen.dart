@@ -6,7 +6,7 @@ import 'package:book_habits/screens/edit_wishlist_screen.dart';
 import 'package:book_habits/screens/home_page.dart';
 import 'package:book_habits/utils/constants.dart';
 import 'package:book_habits/widgets/drawer_button.dart';
-import 'package:book_habits/widgets/image_decorations.dart';
+import 'package:book_habits/widgets/custom_container_with_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -31,7 +31,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
       ),
       drawer: SafeArea(
         child: Drawer(
-          child: ImageDecoration(
+          child: CustomContainerWithImage(
             assetUrl: 'assets/images/white_brick.jpg',
             opacity: 1,
             child: Container(
@@ -62,7 +62,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
           ),
         ),
       ),
-      body: ImageDecoration(
+      body: CustomContainerWithImage(
         assetUrl: 'assets/images/white_brick.jpg',
         opacity: 1,
         child: ValueListenableBuilder(
@@ -80,7 +80,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                       Navigator.of(context).pushNamed(EditWishlistScreen.id,
                           arguments: currentWish);
                     },
-                    child: ImageDecoration(
+                    child: CustomContainerWithImage(
                       assetUrl: 'assets/images/wood.jpg',
                       opacity: 1,
                       child: ListTile(

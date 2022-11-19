@@ -1,11 +1,11 @@
 import 'package:book_habits/utils/constants.dart';
 import 'package:flutter/material.dart';
 
-class ImageDecoration extends StatelessWidget {
+class CustomContainerWithImage extends StatelessWidget {
   final String assetUrl;
   final double opacity;
   final Widget child;
-  const ImageDecoration({
+  const CustomContainerWithImage({
     Key? key,
     required this.assetUrl,
     required this.opacity,
