@@ -41,14 +41,11 @@ class _EditBookPageState extends State<EditBookPage> {
           assetUrl: 'assets/images/bricks.jpg',
           height: height,
           width: width,
-          containerSize: 0.60,
+          containerSize: 0.68,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomText(screenArgument: screenArgument),
-              const SizedBox(
-                height: 40,
-              ),
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(

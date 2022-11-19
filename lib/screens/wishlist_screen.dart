@@ -26,38 +26,50 @@ class _WishlistScreenState extends State<WishlistScreen> {
     late Wishlist currentWish;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Wishlist'),
+        title: const Text(
+          'Wishlist',
+          style: listTileTextStyle,
+        ),
         backgroundColor: wishlistAppBarColor,
       ),
       drawer: SafeArea(
         child: Drawer(
-          child: CustomContainerWithImage(
-            assetUrl: 'assets/images/white_brick.jpg',
-            opacity: 1,
-            child: Container(
-              margin: const EdgeInsets.only(right: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  DrawerButton(
-                    onPressed: () =>
-                        Navigator.of(context).pushNamed(AddWishlistScreen.id),
-                    text: 'Add your book to wishlist',
-                  ),
-                  DrawerButton(
-                    onPressed: () =>
-                        Navigator.of(context).pushNamed(HomePage.id),
-                    text: 'Return book list',
-                  ),
-                  DrawerButton(
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushNamed(AddBookScreen.id, arguments: currentWish);
-                    },
-                    text: 'Pick random book to read',
-                  ),
-                ],
-              ),
+          width: 200,
+          backgroundColor: wishlistAppBarColor,
+          child: Container(
+            margin: const EdgeInsets.only(right: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Divider(
+                  thickness: 3,
+                ),
+                DrawerButton(
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed(AddWishlistScreen.id),
+                  text: 'Add your book to wishlist',
+                ),
+                const Divider(
+                  thickness: 3,
+                ),
+                DrawerButton(
+                  onPressed: () => Navigator.of(context).pushNamed(HomePage.id),
+                  text: 'Return book list',
+                ),
+                const Divider(
+                  thickness: 3,
+                ),
+                DrawerButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushNamed(AddBookScreen.id, arguments: currentWish);
+                  },
+                  text: 'Pick random book to read',
+                ),
+                const Divider(
+                  thickness: 3,
+                ),
+              ],
             ),
           ),
         ),

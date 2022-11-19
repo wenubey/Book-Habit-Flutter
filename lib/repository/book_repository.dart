@@ -72,7 +72,7 @@ class BookRepository extends ChangeNotifier {
         isFinished: false,
         createdAt: formattedDate.format(DateTime.now()),
         genre: genre,
-        readedAt: '',
+        readedAt: 'Not yet finished',
         isFavourite: false,
       ),
     );

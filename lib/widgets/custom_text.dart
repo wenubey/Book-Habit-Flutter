@@ -40,6 +40,17 @@ class CustomText extends StatelessWidget {
               'Genre: ${screenArgument.book.genre}',
               style: Theme.of(context).textTheme.bodyText1,
             ),
+            const CustomDivider(),
+            Text(
+              'Start Date: ${screenArgument.book.createdAt}',
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+            const CustomDivider(),
+            Text(
+              'Finish Date: ${screenArgument.book.readedAt}',
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+            const CustomDivider(),
           ],
         ),
       ),

@@ -36,8 +36,15 @@ class _BookListScreenState extends State<BookListScreen> {
         return Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            title: const Text('Book Habits'),
             actions: [
+              const Center(
+                  child: Padding(
+                padding: EdgeInsets.only(right: 20, left: 8),
+                child: Text(
+                  'Book Habits',
+                  style: listTileTextStyle,
+                ),
+              )),
               ListTileStarButton(
                   onPressed: () {
                     setState(() {
@@ -71,14 +78,23 @@ class _BookListScreenState extends State<BookListScreen> {
                   Navigator.pop(context);
                 },
               ),
-              Checkbox(
-                value: isHideFinishedBooksChecked,
-                onChanged: (isChecked) {
-                  setState(() {
-                    isHideFinishedBooksChecked = !isHideFinishedBooksChecked;
-                  });
-                },
-              ),
+              TextButton(
+                onPressed: () => setState(() =>
+                    isHideFinishedBooksChecked = !isHideFinishedBooksChecked),
+                child: isHideFinishedBooksChecked
+                    ? Image.asset(
+                        'assets/icon/show.png',
+                        color: beige,
+                        width: 25,
+                        height: 25,
+                      )
+                    : Image.asset(
+                        'assets/icon/hide.png',
+                        color: beige,
+                        width: 25,
+                        height: 25,
+                      ),
+              )
             ],
           ),
           body: CustomContainerWithImage(

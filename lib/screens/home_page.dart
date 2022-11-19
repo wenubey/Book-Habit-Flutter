@@ -28,6 +28,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: screens[selectedIndex],
       bottomNavigationBar: NavigationBar(
+        backgroundColor: selectedIndex == 2 ? wishlistAppBarColor : brickOrange,
+        height: 70,
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         selectedIndex: selectedIndex,
         destinations: [

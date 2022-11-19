@@ -63,7 +63,10 @@ class _AddBookScreenState extends State<AddBookScreen> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Book'),
+        title: const Text(
+          'Add Book',
+          style: listTileTextStyle,
+        ),
       ),
       body: SafeArea(
         child: CustomInputContainer(

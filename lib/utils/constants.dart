@@ -93,6 +93,9 @@ final newThemeData = ThemeData(
   appBarTheme: const AppBarTheme(
     color: brickOrange,
   ),
+  primaryIconTheme: const IconThemeData(
+    color: beige,
+  ),
   timePickerTheme: TimePickerThemeData(
     dialHandColor: Colors.blueGrey,
     hourMinuteTextColor: MaterialStateColor.resolveWith((states) =>

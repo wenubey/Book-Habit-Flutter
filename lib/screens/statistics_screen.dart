@@ -1,7 +1,6 @@
 import 'package:book_habits/repository/book_repository.dart';
 import 'package:book_habits/utils/constants.dart';
 import 'package:book_habits/widgets/custom_container_with_image.dart';
-
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 
@@ -19,7 +18,10 @@ class _StatisticScreenState extends State<StatisticScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Statistics'),
+        title: const Text(
+          'Statistics',
+          style: listTileTextStyle,
+        ),
       ),
       body: CustomContainerWithImage(
         assetUrl: 'assets/images/paper.jpg',
@@ -51,11 +53,13 @@ class _StatisticScreenState extends State<StatisticScreen> {
                     dataMap: repository.getChartInfo(),
                     colorList: colorList,
                     chartLegendSpacing: 5,
-                    chartRadius: 200,
+                    chartRadius: 150,
                     legendOptions: const LegendOptions(
+                      legendShape: BoxShape.rectangle,
                       legendPosition: LegendPosition.bottom,
+                      showLegends: true,
                       legendTextStyle: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 12.0,
                       ),
                     ),
                     chartValuesOptions: const ChartValuesOptions(
